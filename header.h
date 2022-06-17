@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#endif
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/types.h>
@@ -46,3 +45,5 @@ int _env(void);
 void _puts(char *str);
 int _putchar(char c);
 char *_memset(char *s, char b, unsigned int n);
+
+#endif
