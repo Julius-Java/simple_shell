@@ -1,7 +1,7 @@
 #include "main.h"
 
-/*
- * main - main function
+/**
+ *main - Entry point of the program
  *
  *
  *Return: void
