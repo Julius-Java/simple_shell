@@ -1,28 +1,40 @@
-#include "main.h"
-
+#include "holberton.h"
 /**
- *main - Entry point of the program
+ * main - runs the shell program
  *
- *
- *Return: void
+ * Return: 0 on success
  */
 int main(void)
 {
-	char *buffer;
-	size_t buff_size;
-	int read;
+	char *fullpathbuffer = NULL, *copy = NULL, *buffer = NULL;
+	char *PATH = NULL;
+	char **av;
+	int exitstatus = 0;
 
-	buffer = malloc(sizeof(size_t) * buff_size);
-
+	signal(SIGINT, SIG_IGN);
+	PATH = _getenv("PATH");
+	if (PATH == NULL)
+		return (-1);
 	while (1)
 	{
-		print("cisfun$: ");
-		read = getline(&buffer, &buff_size, stdin);
-
-		if (read != EOF)
+		av = NULL;
+		prompt();
+		buffer = _read();
+		if (*buffer != '\0')
 		{
-			printf("%s\n, buffer);
+			av = tokenize(buffer);
+			if (av == NULL)
+			{
+				free(buffer);
+				continue;
+			}
+			fullpathbuffer = _fullpathbuffer(av, PATH, copy);
+			if (checkbuiltins(av, buffer, exitstatus) == 1)
+				continue;
+			exitstatus = _forkprocess(av, buffer, fullpathbuffer);
 		}
+		else
+			free(buffer);
 	}
 	return (0);
 }
