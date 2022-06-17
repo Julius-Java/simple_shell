@@ -1,4 +1,3 @@
-
 .TH simple_shell "1.0" "5 MAy 2022" "simple_shell man page" "simple_shell man page"
 .SH NAME
 .B shell
@@ -44,3 +43,4 @@ All files and code used in .shell were created and compiled on Ubuntu 14.04.4 LT
 There are many features and builtin commands that are not implimented in this simple shell such as aliases, cd, and logical operators. When
 .SH AUTHOR
 Emmanuel Julius & Mfoniso Ekanem
+
